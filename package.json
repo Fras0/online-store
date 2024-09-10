@@ -1,0 +1,22 @@
+{
+  "name": "online-store",
+  "version": "1.0.0",
+  "description": "online store backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naderhany450/online-store.git"
+  },
+  "keywords": [
+    "e-commerce"
+  ],
+  "author": "Nader - Fras",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naderhany450/online-store/issues"
+  },
+  "homepage": "https://github.com/naderhany450/online-store#readme"
+}
