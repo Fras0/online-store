@@ -4,7 +4,7 @@
   "description": "online store backend",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -13,10 +13,13 @@
   "keywords": [
     "e-commerce"
   ],
-  "author": "Nader - Fras",
+  "author": "Hisham - Fras",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/naderhany450/online-store/issues"
   },
-  "homepage": "https://github.com/naderhany450/online-store#readme"
+  "homepage": "https://github.com/naderhany450/online-store#readme",
+  "dependencies": {
+    "express": "^4.20.0"
+  }
 }
