@@ -5,6 +5,10 @@ import {
   passwordIsConfirmed,
   userDetailsAreValid,
 } from "../utils/validation.js";
+import {
+  createUserSession,
+  destroyUserAuthSession,
+} from "../utils/authentication.js";
 
 const signUp = asyncHandler(async (req, res) => {
   // const { name, email, password } = req.body
@@ -74,6 +78,9 @@ const login = asyncHandler(async (req, res) => {
       isAdmin: user.isAdmin,
       token: generateToken(user._id),
     });
+
+    createUserSession(req, user);
+    console.log(req.session.uid);
   } else {
     res.status(401);
     throw new Error("Invalid email or password");
@@ -96,4 +103,15 @@ const getUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-export { login, getUserProfile, signUp };
+const logout = (req,res) => {
+  destroyUserAuthSession(req,(err)=>{
+    if (err) {
+      console.error('Error saving session:', err);
+      res.status(500).send('Error logging out');
+    } else {
+      res.send('Logged out successfully');
+    }
+  });
+};
+
+export { login, logout, getUserProfile, signUp };

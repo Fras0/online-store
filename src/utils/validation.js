@@ -1,5 +1,3 @@
-import emailValidator from "deep-email-validator";
-
 function isEmpty(value) {
   return !value || value.trim() == "";
 }
