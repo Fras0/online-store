@@ -1,0 +1,12 @@
+POST http://0.0.0.0:5000/api/campagins HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZjgwNDkwNzI1M2JlZjZhNDYwNDQ3ZCIsImlhdCI6MTcyNzUzMDEyOCwiZXhwIjoxNzMwMTIyMTI4fQ.nA4TndA8lQeNpZwL7vdsJHLlEEfylUuX7eb33x5yTcQ
+
+{
+    "title":"hellofgjgm30@gmail.com",
+    "details":"000vgm ngb00",
+    "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRbWnEnvsYtaj9go6iyPm4fP4NC4xdiWdW-O9ZWFXCOk2jCXi0e5ZrXINYYzGXBK0lcHc&usqp=CAU"
+}
+
+
+

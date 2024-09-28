@@ -3,10 +3,10 @@ content-type: application/json
 
 
 {
-    "email":"hello30@gmail.com",
+    "email":"hello5@gmail.com",
     "password":"00000",
     "confirm-password":"00000",
-    "name":"Tes3 User",
+    "name":"Tes5 User",
     "phone":"01025381934"
 }
 
