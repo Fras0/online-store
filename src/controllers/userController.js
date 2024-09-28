@@ -1,3 +1,7 @@
+/**
+ * @author : Fras 
+ * @info   : file contains the controllers for the users .
+ */
 import asyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
 import generateToken from "../utils/generateToken.js";
@@ -10,6 +14,10 @@ import {
   destroyUserAuthSession,
 } from "../utils/authentication.js";
 
+/**
+ * @info : this controller is responsible for the user registeration
+ * @param {req} => the user request.
+ */
 const signUp = asyncHandler(async (req, res) => {
   // const { name, email, password } = req.body
 

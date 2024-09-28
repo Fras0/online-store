@@ -4,6 +4,7 @@
   "description": "online store backend",
   "main": "index.js",
   "type": "module",
+  
   "scripts": {
     "start": "node ./src/index.js",
     "server": "nodemon src/index.js",

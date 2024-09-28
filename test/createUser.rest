@@ -1,0 +1,12 @@
+POST http://0.0.0.0:5000/api/users/signup HTTP/1.1
+content-type: application/json
+
+
+{
+    "email":"hello30@gmail.com",
+    "password":"00000",
+    "confirm-password":"00000",
+    "name":"Tes3 User",
+    "phone":"01025381934"
+}
+
