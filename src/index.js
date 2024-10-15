@@ -3,8 +3,9 @@ import connectDB from "./Config/connectDB.js";
 import dotenv from "dotenv";
 import userRoutes from "./routes/userRoutes.js";
 import campaginsRoutes from "./routes/campagins.routes.js";
+import productRoutes from "./routes/productRoutes.js";
 
-import {createSessionConfig} from "./Config/session.js";
+import { createSessionConfig } from "./Config/session.js";
 
 import expressSession from "express-session";
 
@@ -25,6 +26,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/users", userRoutes);
 app.use("/api/campagins", campaginsRoutes);
+app.use("/api/products", productRoutes);
 
 const PORT = process.env.PORT || 5000;
 

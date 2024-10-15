@@ -25,4 +25,14 @@ const protect = asyncHandler(async (req, res, next) => {
     }
 })
 
-export { protect }
+
+const restrictToAdmin = () => {
+    return (req, res, next) => {
+      if (!req.user.isAdmin) {
+        throw new Error('You do not have permission to perform this action')
+      }
+      next();
+    };
+};
+
+export { protect , restrictToAdmin }
