@@ -1,11 +1,11 @@
-PATCH  http://0.0.0.0:5000/api/products/670e39c2bf893e49c15f8d0c HTTP/1.1
+PATCH  http://0.0.0.0:5000/api/products/6710d38006898734ce477cdf HTTP/1.1
 content-type: application/json
 
 
 { 
-    "name":"phone",
+    "name":"updated_updated",
     "description":"new phone with great features",
     "category":"phones",
-    "price":1100
+    "price":210000000
 }
 

@@ -1,7 +1,6 @@
 GET http://0.0.0.0:5000/api/products/ HTTP/1.1
 content-type: application/json
 
-
 {
 }
 

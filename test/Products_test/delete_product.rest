@@ -1,4 +1,4 @@
-DELETE  http://0.0.0.0:5000/api/products/670e5bdef04a7a933e31a770 HTTP/1.1
+DELETE  http://0.0.0.0:5000/api/products/6710d38006898734ce477cdf HTTP/1.1
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MGUzOWMyYmY4OTNlNDljMTVmOGQxMiIsImlhdCI6MTcyODk5Mjc0MiwiZXhwIjoxNzMxNTg0NzQyfQ.jYtA4c8N34yEtM9QfRTup73e-acg0Xf4MHpXAbzAUag
 
