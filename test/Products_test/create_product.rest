@@ -1,0 +1,10 @@
+POST  http://0.0.0.0:5000/api/products/ HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MGUzOWMyYmY4OTNlNDljMTVmOGQxMiIsImlhdCI6MTcyOTE2OTU5OCwiZXhwIjoxNzMxNzYxNTk4fQ.B1wl21I4_5GfYU2qLyBdv2LJIVwLXpwvJ-7_Mx6oDT0
+
+{
+        "name": "new product",
+        "description": "new product with great features",
+        "category": "phones",
+        "price": 1123
+}

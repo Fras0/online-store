@@ -4,7 +4,7 @@ import {
   logout,
   getUserProfile,
   signUp,
-} from "../controllers/userController.js";
+} from "../controllers/authController.js";
 
 const router = express.Router();
 

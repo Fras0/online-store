@@ -1,0 +1,5 @@
+GET http://0.0.0.0:5000/api/products/6710d1c6805641c758382fae HTTP/1.1
+content-type: application/json
+
+{
+}
