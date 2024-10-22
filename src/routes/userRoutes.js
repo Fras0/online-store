@@ -1,16 +1,40 @@
 import express from "express";
 import {
   login,
-  logout,
-  getUserProfile,
   signUp,
+  updatePassword
 } from "../controllers/authController.js";
+import { restrictToAdmin, protect } from "../middleware/authMiddleware.js";
+import UserController from "../controllers/userController.js";
 
+
+const userController = new UserController();
 const router = express.Router();
 
 router.route("/signup").post(signUp);
-router.post("/login", login);
-router.post("/logout", logout);
-// router.route('/profile').get(protect, getUserProfile)
+router.route("/login").post(login);
+
+router.use(protect);
+
+router
+  .route("/me")
+  .get(userController.getMe, userController.getOne);
+
+router
+  .route("/updatePassword")
+  .patch(updatePassword);
+
+router.use(restrictToAdmin);
+
+router.
+  route("/")
+  .get(userController.getAll)
+  .post(userController.createOne)
+
+router
+  .route("/:id")
+  .get(userController.getOne)
+  .patch(userController.updateOne)
+  .delete(userController.deleteOne)
 
 export default router;

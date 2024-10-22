@@ -6,6 +6,5 @@
 
 ```bash
 MONGO_URI=mongodb://0.0.0.0:27017/online-store
-SESSION_SECRET=abc123
 JWT_SECRET=hello
 ```

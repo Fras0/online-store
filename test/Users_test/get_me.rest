@@ -1,0 +1,6 @@
+GET http://0.0.0.0:5000/api/users/me HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTc1NmY1ZWJhM2MwYTViOWVmMDU2NyIsImlhdCI6MTcyOTU4MjgzNywiZXhwIjoxNzI5ODQyMDM3fQ.p_gHU18g9FnIW-v6BC5i4arH5QETe64rjT8yKygej7s
+
+{
+}

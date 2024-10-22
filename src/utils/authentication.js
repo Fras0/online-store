@@ -1,12 +1,9 @@
-function createUserSession(req, user, action) {
-  req.session.uid = user._id.toString();
-  req.session.save(action);
+import jwt from 'jsonwebtoken'
+
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: '3d'
+  })
 }
 
-function destroyUserAuthSession(req, callback) {
-  req.session.uid = null;
-  req.session.passport = null;
-  req.session.save(callback);
-}
-
-export { createUserSession, destroyUserAuthSession };
+export { generateToken };

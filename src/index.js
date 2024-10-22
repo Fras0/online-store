@@ -5,10 +5,6 @@ import userRoutes from "./routes/userRoutes.js";
 import campaginsRoutes from "./routes/campagins.routes.js";
 import productRoutes from "./routes/productRoutes.js";
 
-import { createSessionConfig } from "./Config/session.js";
-
-import expressSession from "express-session";
-
 dotenv.config();
 
 connectDB();
@@ -16,9 +12,6 @@ connectDB();
 const app = express();
 
 app.use(express.json());
-
-const sessionConfig = createSessionConfig();
-app.use(expressSession(sessionConfig));
 
 app.get("/", (req, res) => {
   res.send("API is running...");
