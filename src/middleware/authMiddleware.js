@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 import asyncHandler from 'express-async-handler'
 import User from '../models/userModel.js'
 import { AppError } from '../utils/appError.js'
-import {promisify} from 'util';
+import { promisify } from 'util';
 
 const protect = asyncHandler(async (req, res, next) => {
     // 1) Getting token and check if it's there

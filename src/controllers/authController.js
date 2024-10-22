@@ -4,21 +4,20 @@
  */
 import asyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
-import generateToken from "../utils/generateToken.js";
 import {
   passwordIsConfirmed,
   userDetailsAreValid,
 } from "../utils/validation.js";
 import {
-  createUserSession,
-  destroyUserAuthSession,
+  generateToken
 } from "../utils/authentication.js";
+import { AppError } from "../utils/appError.js";
 
 /**
  * @info : this controller is responsible for the user registeration
  * @param {req} => the user request.
  */
-const signUp = asyncHandler(async (req, res) => {
+const signUp = asyncHandler(async (req, res, next) => {
   // const { name, email, password } = req.body
 
   const enteredData = {
@@ -39,15 +38,14 @@ const signUp = asyncHandler(async (req, res) => {
     ) ||
     !passwordIsConfirmed(req.body.password, req.body["confirm-password"])
   ) {
-    res.status(400);
-    throw new Error("Please check your inputs again");
+    return next(new AppError("Please check your inputs again", 400));
   }
 
   const userExists = await User.findOne({ email: enteredData.email });
 
   if (userExists) {
     res.status(400);
-    throw new Error("user allready exists");
+    return next(new AppError("user allready exists", 400));
   }
 
   const user = await User.create({
@@ -58,68 +56,63 @@ const signUp = asyncHandler(async (req, res) => {
   });
 
   if (user) {
+
+
+    const token = generateToken(user._id);
+
     res.status(201).json({
       _id: user._id,
       name: user.name,
       email: user.email,
       phone: enteredData.phone,
       isAdmin: user.isAdmin,
-      token: generateToken(user._id),
+      token: token,
     });
   } else {
-    res.status(400);
-    throw new Error("invalid user data");
+    return next(new AppError("invalid user data", 400));
   }
 });
 
-const login = asyncHandler(async (req, res) => {
+const login = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
+
+  if (!email || !password) {
+    return next(new AppError('Please provide email and password!', 400));
+  }
 
   const user = await User.findOne({ email });
 
   if (user && (await user.matchPassword(password))) {
+
+    const token = generateToken(user._id);
+
     res.json({
       _id: user._id,
       name: user.name,
       email: user.email,
       phone: user.phone,
       isAdmin: user.isAdmin,
-      token: generateToken(user._id),
+      token: token,
     });
 
-    createUserSession(req, user);
-    console.log(req.session.uid);
   } else {
-    res.status(401);
-    throw new Error("Invalid email or password");
+    return next(new AppError("Invalid email or password", 401));
   }
 });
 
-const getUserProfile = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.user._id);
 
-  if (user) {
-    res.json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      isAdmin: user.isAdmin,
-    });
-  } else {
-    res.status(404);
-    throw new Error("User not found");
+const updatePassword = asyncHandler(async (req, res, next) => {
+  // 1) Get user from collection
+  const user = await User.findById(req.user.id).select('+password');
+  // 2) Check if POSTed current password is correct
+  if (!(await user.matchPassword(req.body.passwordCurrent, user.password))) {
+    return next(new AppError('Your current password is wrong', 401));
   }
+  // 3) If so, update password
+  user.password = req.body.password;
+  user.passwordConfirm = req.body.passwordConfirm;
+  await user.save();
 });
 
-const logout = (req,res) => {
-  destroyUserAuthSession(req,(err)=>{
-    if (err) {
-      console.error('Error saving session:', err);
-      res.status(500).send('Error logging out');
-    } else {
-      res.send('Logged out successfully');
-    }
-  });
-};
 
-export { login, logout, getUserProfile, signUp };
+export { login, signUp, updatePassword };
