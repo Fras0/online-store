@@ -1,3 +1,9 @@
+/**
+ * @author: Fras 
+ * @description : this file contain the model of User
+ */
+
+
 import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
 
@@ -17,6 +23,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    
     phone: {
       type: String,
       required: true,
