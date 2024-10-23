@@ -5,6 +5,11 @@ import userRoutes from "./routes/userRoutes.js";
 import campaginsRoutes from "./routes/campagins.routes.js";
 import productRoutes from "./routes/productRoutes.js";
 
+import cartRoutes from "./routes/cart.routes.js";
+import categoriesRoutes from "./routes/campagins.routes.js";
+import ordersRoues from "./routes/orders.routes.js";
+import reviewsRoutes from "./routes/reviews.routes.js";
+
 dotenv.config();
 
 connectDB();
@@ -20,6 +25,11 @@ app.get("/", (req, res) => {
 app.use("/api/users", userRoutes);
 app.use("/api/campagins", campaginsRoutes);
 app.use("/api/products", productRoutes);
+
+app.use("/api/cart", cartRoutes);
+app.use("/api/categories", categoriesRoutes);
+app.use("/api/orders", ordersRoues);
+app.use("/api/reviews", reviewsRoutes);
 
 const PORT = process.env.PORT || 5000;
 

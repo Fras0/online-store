@@ -1,0 +1,10 @@
+POST  http://0.0.0.0:5000/api/products/ HTTP/1.1
+content-type: application/json
+Authorization: Bearer 
+
+{
+        "name": "new product",
+        "description": "new product with great features",
+        "category": "phones",
+        "price": 1123
+}

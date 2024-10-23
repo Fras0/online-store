@@ -12,7 +12,7 @@ const controller = new Controller();
 router
     .route("/")
     .get(protect,controller.getAll)
-    .post(protect, controller.createProduct);
+    .post(protect, controller.createOne);
 router
     .route("/:id")
     .get(protect,controller.getOne)

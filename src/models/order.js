@@ -3,6 +3,7 @@
  * @description : this file contain the model of Orders
  */
 
+import mongoose from 'mongoose';
 
 const orderSchema = new mongoose.Schema({
     user: {
@@ -41,3 +42,4 @@ const orderSchema = new mongoose.Schema({
 });
 
 const Order = mongoose.model('Order', orderSchema);
+export default Order;
