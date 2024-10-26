@@ -3,9 +3,9 @@ content-type: application/json
 
 
 {
-    "name":"test name",
-    "email":"test2@example.com",
+    "name":"user 2",
+    "email":"user222@example.com",
     "password":"12345",
     "confirm-password":"12345",
-    "phone":"122121212"
+    "phone":"2222222"
 }

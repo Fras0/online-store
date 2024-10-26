@@ -1,0 +1,8 @@
+POST http://0.0.0.0:5000/api/products/671d255df288ae8d0ef5da91/reviews/ HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWQyODMxZjI4OGFlOGQwZWY1ZGE5ZSIsImlhdCI6MTcyOTk2NDA4MSwiZXhwIjoxNzMwMjIzMjgxfQ.6HhR6UNFMg0g-FdYiENwBvYvJiwynqdPL8GhkuPgXSg
+
+{
+    "rating": 3,
+    "review": "review 1"
+}

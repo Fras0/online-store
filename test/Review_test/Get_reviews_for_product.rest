@@ -1,0 +1,7 @@
+GET  http://0.0.0.0:5000/api/products/671d24ecf288ae8d0ef5da8b/reviews/ HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MWQyNWMxZjI4OGFlOGQwZWY1ZGE5NiIsImlhdCI6MTcyOTk2MzQ1NywiZXhwIjoxNzMwMjIyNjU3fQ.og-b_mP0Du-V0Q2IXHSMhhGY461Gi9UMJwTZjLdvKKE
+
+{
+
+}
