@@ -24,13 +24,12 @@ const productSchema = new mongoose.Schema(
         added_by: {
             type: mongoose.Schema.ObjectId,
             ref: "User",
-            default: "670e246bcb517ccb6742533c"
         }
     },
     {
         timestamps: true,
     }
-)
+);
 
 
 const Product = mongoose.model('Product', productSchema)

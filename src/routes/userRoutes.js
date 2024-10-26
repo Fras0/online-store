@@ -29,7 +29,6 @@ router.use(restrictToAdmin);
 router.
   route("/")
   .get(userController.getAll)
-  .post(userController.createOne)
 
 router
   .route("/:id")
